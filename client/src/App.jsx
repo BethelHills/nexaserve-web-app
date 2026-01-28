@@ -25,7 +25,7 @@ export default function App() {
         <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/dashboard/bookings" element={<MyBookings />} />
-        <Route path="/dashboard/*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/dashboard/*" element={<UserDashboard />} />
       </Routes>
     </BrowserRouter>
   );
