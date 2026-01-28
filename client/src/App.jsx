@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Services from "./pages/public/Services";
 import ServiceDetails from "./pages/public/ServiceDetails";
-import AdminServices from "./pages/admin/AdminServices";
+import ManageServices from "./pages/admin/ManageServices";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
       <Route path="/services/:id" element={<ServiceDetails />} />
 
       <Route path="/admin" element={<Navigate to="/admin/services" replace />} />
-      <Route path="/admin/services" element={<AdminServices />} />
+      <Route path="/admin/services" element={<ManageServices />} />
       <Route path="/admin/*" element={<div>Coming soon</div>} />
 
       <Route path="*" element={<div>Page not found</div>} />
