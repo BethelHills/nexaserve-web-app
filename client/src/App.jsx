@@ -4,6 +4,8 @@ import Services from "./pages/public/Services";
 import ServiceDetails from "./pages/public/ServiceDetails";
 import BookService from "./pages/public/BookService";
 import ManageServices from "./pages/admin/ManageServices";
+import UserDashboard from "./pages/user/UserDashboard";
+import MyBookings from "./pages/user/MyBookings";
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
         <Route path="/book/:id" element={<BookService />} />
 
         <Route path="/admin/services" element={<ManageServices />} />
+        <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="/dashboard/bookings" element={<MyBookings />} />
       </Routes>
     </BrowserRouter>
   );
