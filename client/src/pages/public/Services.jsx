@@ -158,18 +158,15 @@ export default function Services() {
                   View
                 </Link>
 
-                <Link
-                  className={styles.primaryBtn}
-                  to={`/book/${s.id}`}
-                  aria-disabled={s.status === "Unavailable"}
-                  onClick={(event) => {
-                    if (s.status === "Unavailable") {
-                      event.preventDefault();
-                    }
-                  }}
-                >
-                  Book
-                </Link>
+                {s.status === "Unavailable" ? (
+                  <button className={styles.primaryBtn} disabled>
+                    Book
+                  </button>
+                ) : (
+                  <Link className={styles.primaryBtn} to={`/book/${s.id}`}>
+                    Book
+                  </Link>
+                )}
               </div>
             </div>
           </div>
