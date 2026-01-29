@@ -10,6 +10,7 @@ A modern service booking and management web application built to demonstrate rea
 ## 📸 Screenshots
 
 ![Bookings Dashboard](client/src/assets/images/Bookings%20Screenshot%20.png)
+![Admin Dashboard](client/src/assets/images/Admin%20DashboardScreenshot%20.png)
 
 ## 📌 Project Overview
 
