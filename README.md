@@ -66,3 +66,23 @@ NexaServe was built as a portfolio-grade web application to demonstrate:
 - Clean, professional presentation
 
 This project represents how a production service platform could be structured before backend integration.
+
+## 🔮 Future Improvements
+
+Planned enhancements include:
+- Backend API (Node.js + Express)
+- Database integration (MongoDB)
+- Real authentication with JWT
+- Role-based route protection
+- Admin analytics with charts
+- Payment integration
+
+## 👤 Author
+
+Bethel Hillary  
+Full-Stack Developer  
+Focused on building clean, responsive, real-world web applications for international clients.
+
+## 📄 License
+
+This project is open source and available under the MIT License.
