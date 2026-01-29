@@ -7,6 +7,10 @@ A modern service booking and management web application built to demonstrate rea
 - 👉 Live App: https://nexaserve-web-app.vercel.app  
 - 👉 Source Code: https://github.com/BethelHills/nexaserve-web-app
 
+## 📸 Screenshots
+
+![Bookings Dashboard](client/src/assets/images/Bookings%20Screenshot%20.png)
+
 ## 📌 Project Overview
 
 NexaServe models how a real service-based platform works end-to-end.  
