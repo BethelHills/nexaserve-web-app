@@ -27,13 +27,15 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 12,
         }}
       >
         <div style={{ fontWeight: 900, fontSize: 18, color: "#0f172a" }}>
           NexaServe
         </div>
 
-        <nav style={{ display: "flex", gap: 12, alignItems: "center" }}>
+        <nav style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
           <NavLink to="/services" style={linkStyle}>
             Services
           </NavLink>

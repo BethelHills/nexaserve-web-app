@@ -13,10 +13,18 @@ const linkStyle = ({ isActive }) => ({
 
 export default function UserLayout({ title, children }) {
   return (
-    <div style={{ display: "flex", background: "#f5f7fb", minHeight: "calc(100vh - 64px)" }}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        background: "#f5f7fb",
+        minHeight: "calc(100vh - 64px)",
+      }}
+    >
       <aside
         style={{
-          width: 260,
+          width: "min(260px, 100%)",
+          flex: "1 1 220px",
           background: "#fff",
           borderRight: "1px solid #e5e7eb",
           padding: 16,
@@ -47,7 +55,7 @@ export default function UserLayout({ title, children }) {
         </nav>
       </aside>
 
-      <main style={{ flex: 1, padding: 24 }}>
+      <main style={{ flex: "3 1 320px", padding: 24, minWidth: 0 }}>
         <div style={{ marginBottom: 16 }}>
           <h1 style={{ margin: 0, color: "#0f172a", fontSize: 26 }}>{title}</h1>
           <p style={{ margin: "6px 0 0", color: "#64748b" }}>

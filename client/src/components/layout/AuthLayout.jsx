@@ -16,7 +16,7 @@ export default function AuthLayout({ title, subtitle, children }) {
           width: "100%",
           maxWidth: 980,
           display: "grid",
-          gridTemplateColumns: "1.1fr 0.9fr",
+          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           gap: 14,
         }}
       >

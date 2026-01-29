@@ -22,7 +22,7 @@ export default function AdminDashboard() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
           gap: 14,
         }}
       >
@@ -36,7 +36,7 @@ export default function AdminDashboard() {
         style={{
           marginTop: 14,
           display: "grid",
-          gridTemplateColumns: "2fr 1fr",
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
           gap: 14,
         }}
       >

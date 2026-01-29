@@ -16,7 +16,13 @@ export default function UserDashboard() {
 
   return (
     <UserLayout title="Dashboard">
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 14 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: 14,
+        }}
+      >
         <div style={card}>
           <div style={{ fontSize: 12, color: "#64748b", fontWeight: 700 }}>
             Total Bookings

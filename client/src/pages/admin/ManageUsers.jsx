@@ -86,7 +86,13 @@ export default function ManageUsers() {
 
   return (
     <AdminLayout title="Users">
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: 14 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+          gap: 14,
+        }}
+      >
         <div style={card}>
           <div style={label}>Total Users</div>
           <div style={value}>{rows.length}</div>
