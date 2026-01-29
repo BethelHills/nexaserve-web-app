@@ -5,7 +5,7 @@ import ServiceDetails from "./pages/public/ServiceDetails";
 import BookService from "./pages/public/BookService";
 import ManageServices from "./pages/admin/ManageServices";
 import AdminBookings from "./pages/admin/AdminBookings";
-import AdminUsers from "./pages/admin/AdminUsers";
+import ManageUsers from "./pages/admin/ManageUsers";
 import UserDashboard from "./pages/user/UserDashboard";
 import MyBookings from "./pages/user/MyBookings";
 
@@ -22,7 +22,7 @@ export default function App() {
 
         <Route path="/admin/services" element={<ManageServices />} />
         <Route path="/admin/bookings" element={<AdminBookings />} />
-        <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/users" element={<ManageUsers />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/dashboard/bookings" element={<MyBookings />} />
         <Route path="/dashboard/*" element={<UserDashboard />} />
