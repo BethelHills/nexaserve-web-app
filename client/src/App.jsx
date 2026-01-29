@@ -4,6 +4,7 @@ import Services from "./pages/public/Services";
 import ServiceDetails from "./pages/public/ServiceDetails";
 import BookService from "./pages/public/BookService";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import ManageBookings from "./pages/admin/ManageBookings";
 import ManageServices from "./pages/admin/ManageServices";
 import ManageUsers from "./pages/admin/ManageUsers";
 import UserDashboard from "./pages/user/UserDashboard";
@@ -22,7 +23,7 @@ export default function App() {
 
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/services" element={<ManageServices />} />
-        <Route path="/admin/bookings" element={<div>Admin bookings coming next.</div>} />
+        <Route path="/admin/bookings" element={<ManageBookings />} />
         <Route path="/admin/users" element={<ManageUsers />} />
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/dashboard/bookings" element={<MyBookings />} />
