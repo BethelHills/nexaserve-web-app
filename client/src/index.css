@@ -28,3 +28,25 @@ a {
 button {
   font-family: inherit;
 }
+
+.authLayout {
+  padding: 24px;
+}
+
+.authGrid {
+  width: 100%;
+}
+
+@media (max-width: 720px) {
+  .authLayout {
+    padding: 16px;
+  }
+
+  .authGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .authPanel {
+    padding: 18px !important;
+  }
+}

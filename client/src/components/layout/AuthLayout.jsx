@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function AuthLayout({ title, subtitle, children }) {
   return (
     <div
+      className="authLayout"
       style={{
         minHeight: "calc(100vh - 64px)",
         background: "#f5f7fb",
@@ -12,6 +13,7 @@ export default function AuthLayout({ title, subtitle, children }) {
       }}
     >
       <div
+        className="authGrid"
         style={{
           width: "100%",
           maxWidth: 980,
@@ -21,6 +23,7 @@ export default function AuthLayout({ title, subtitle, children }) {
         }}
       >
         <div
+          className="authPanel"
           style={{
             background: "#ffffff",
             border: "1px solid #e5e7eb",
@@ -67,6 +70,7 @@ export default function AuthLayout({ title, subtitle, children }) {
         </div>
 
         <div
+          className="authPanel"
           style={{
             background: "#ffffff",
             border: "1px solid #e5e7eb",
