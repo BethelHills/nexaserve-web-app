@@ -50,3 +50,13 @@ button {
     padding: 18px !important;
   }
 }
+
+@media (max-width: 860px) {
+  .adminSidebar {
+    width: 100% !important;
+    position: static !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}

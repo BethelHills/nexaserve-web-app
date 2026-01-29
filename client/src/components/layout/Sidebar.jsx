@@ -14,6 +14,7 @@ const linkStyle = ({ isActive }) => ({
 export default function Sidebar() {
   return (
     <aside
+      className="adminSidebar"
       style={{
         width: 260,
         background: "#fff",
