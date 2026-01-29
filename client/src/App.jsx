@@ -3,6 +3,8 @@ import Navbar from "./components/layout/Navbar";
 import Services from "./pages/public/Services";
 import ServiceDetails from "./pages/public/ServiceDetails";
 import BookService from "./pages/public/BookService";
+import Login from "./pages/public/Login";
+import Register from "./pages/public/Register";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageBookings from "./pages/admin/ManageBookings";
 import ManageServices from "./pages/admin/ManageServices";
@@ -20,6 +22,8 @@ export default function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/services/:id" element={<ServiceDetails />} />
         <Route path="/book/:id" element={<BookService />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin/services" element={<ManageServices />} />
