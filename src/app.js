@@ -2,21 +2,20 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import authRoutes from "./routes/auth.routes.js";
-import { errorHandler, notFound } from "./middleware/error.middleware.js";
 
 const app = express();
 
-app.use(express.json());
-app.use(cors());
 app.use(helmet());
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.json());
 
-app.get("/health", (req, res) => {
-  res.json({ status: "ok" });
-});
+app.get("/health", (req, res) => res.json({ status: "ok" }));
 
 app.use("/api/auth", authRoutes);
 
-app.use(notFound);
-app.use(errorHandler);
+app.use((err, req, res, next) => {
+  console.log(err);
+  return res.status(500).json({ message: "Server error" });
+});
 
 export default app;

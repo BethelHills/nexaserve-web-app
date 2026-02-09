@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-  if (!process.env.MONGO_URI) {
-    throw new Error("MONGO_URI is missing in .env");
+  const uri = process.env.MONGO_URI;
+
+  if (!uri) {
+    throw new Error("MONGO_URI is missing");
   }
 
-  await mongoose.connect(process.env.MONGO_URI);
+  await mongoose.connect(uri);
   console.log("MongoDB connected");
 };

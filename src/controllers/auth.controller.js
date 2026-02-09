@@ -1,79 +1,63 @@
 import bcrypt from "bcrypt";
-import { z } from "zod";
+import jwt from "jsonwebtoken";
 import User from "../models/User.js";
-import { signAccessToken } from "../utils/tokens.js";
 
-const registerSchema = z.object({
-  name: z.string().min(2).max(80),
-  email: z.string().email(),
-  password: z.string().min(6).max(128),
-});
-
-const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6).max(128),
-});
-
-const toUserResponse = (user) => ({
-  id: user._id,
-  name: user.name,
-  email: user.email,
-  role: user.role,
-});
-
-export const register = async (req, res, next) => {
-  try {
-    const { name, email, password } = registerSchema.parse(req.body);
-
-    const existing = await User.findOne({ email });
-    if (existing) {
-      return res.status(409).json({ message: "Email already in use" });
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
-      name,
-      email,
-      password: hashedPassword,
-    });
-
-    const token = signAccessToken({ id: user._id });
-    return res.status(201).json({ token, user: toUserResponse(user) });
-  } catch (error) {
-    return next(error);
-  }
+const signToken = (user) => {
+  return jwt.sign(
+    { id: user._id, email: user.email, name: user.name },
+    process.env.JWT_SECRET,
+    { expiresIn: "7d" }
+  );
 };
 
-export const login = async (req, res, next) => {
-  try {
-    const { email, password } = loginSchema.parse(req.body);
+export const register = async (req, res) => {
+  const { name, email, password } = req.body;
 
-    const user = await User.findOne({ email }).select("+password");
-    if (!user) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
-
-    const token = signAccessToken({ id: user._id });
-    return res.status(200).json({ token, user: toUserResponse(user) });
-  } catch (error) {
-    return next(error);
+  const existing = await User.findOne({ email });
+  if (existing) {
+    return res.status(409).json({ message: "Email already in use" });
   }
+
+  const hashed = await bcrypt.hash(password, 12);
+
+  const user = await User.create({
+    name,
+    email,
+    password: hashed,
+  });
+
+  const token = signToken(user);
+
+  return res.status(201).json({
+    message: "Registered successfully",
+    token,
+    user: { id: user._id, name: user.name, email: user.email },
+  });
 };
 
-export const me = async (req, res, next) => {
-  try {
-    const user = await User.findById(req.user?.id);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
+export const login = async (req, res) => {
+  const { email, password } = req.body;
 
-    return res.status(200).json({ user: toUserResponse(user) });
-  } catch (error) {
-    return next(error);
+  const user = await User.findOne({ email });
+  if (!user) {
+    return res.status(401).json({ message: "Invalid credentials" });
   }
+
+  const ok = await bcrypt.compare(password, user.password);
+  if (!ok) {
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
+
+  const token = signToken(user);
+
+  return res.json({
+    message: "Logged in successfully",
+    token,
+    user: { id: user._id, name: user.name, email: user.email },
+  });
+};
+
+export const me = async (req, res) => {
+  const user = await User.findById(req.user.id).select("-password");
+  return res.json({ user });
 };
