@@ -11,7 +11,7 @@ export default function Login() {
 
   const onChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
-  const onSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -27,7 +27,7 @@ export default function Login() {
       });
 
       localStorage.setItem("token", data.token);
-      console.log("Logged in:", data.user);
+      console.log("Login success", data.user);
       navigate("/dashboard");
     } catch (err) {
       setError(err.message || "Login failed");
@@ -36,7 +36,7 @@ export default function Login() {
 
   return (
     <AuthLayout title="Login" subtitle="Welcome back. Sign in to continue.">
-      <form onSubmit={onSubmit} style={{ display: "grid", gap: 12 }}>
+      <form onSubmit={handleLogin} style={{ display: "grid", gap: 12 }}>
         {error && <div style={errorBox}>{error}</div>}
 
         <div>

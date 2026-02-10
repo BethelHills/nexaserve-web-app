@@ -10,6 +10,7 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 app.get("/health", (req, res) => res.json({ status: "ok" }));
+app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 
 app.use("/api/auth", authRoutes);
 
