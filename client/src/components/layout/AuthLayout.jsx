@@ -87,7 +87,7 @@ export default function AuthLayout({ title, subtitle, children }) {
       </div>
 
       <div style={{ marginTop: 12, color: "#94a3b8", fontSize: 12 }}>
-        Note: Auth is UI-only for now. Backend integration comes next.
+        Auth is live and powered by the backend API.
       </div>
     </div>
   );
