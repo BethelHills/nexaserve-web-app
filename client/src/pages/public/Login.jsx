@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../../components/layout/AuthLayout";
+import { login } from "../../services/auth.service";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export default function Login() {
 
   const onChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -19,7 +20,18 @@ export default function Login() {
       return;
     }
 
-    navigate("/dashboard");
+    try {
+      const data = await login({
+        email: form.email.trim(),
+        password: form.password,
+      });
+
+      localStorage.setItem("token", data.token);
+      console.log("Logged in:", data.user);
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.message || "Login failed");
+    }
   };
 
   return (
