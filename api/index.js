@@ -14,6 +14,9 @@ async function ensureDB() {
 
 export default async function handler(req, res) {
   try {
+    const originalUrl = req.headers["x-vercel-original-url"];
+    if (originalUrl) req.url = originalUrl;
+
     await ensureDB();
     return app(req, res);
   } catch (err) {
